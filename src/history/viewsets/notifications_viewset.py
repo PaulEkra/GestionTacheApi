@@ -2,14 +2,14 @@ from datetime import datetime
 
 from django.http import JsonResponse
 from rest_framework import viewsets
-from .models.task_history_model import TaskHistoryModel
-from .serializers.notification_serializer import NotificationSerializer
+from ..models.task_history_model import TaskHistoryModel
+from ..serializers.notification_serializer import NotificationSerializer
 from rest_framework.decorators import action
-from .pagination import StandardResultsSetPagination
+from ..pagination import StandardResultsSetPagination
 
 
 # Create your views here.
-class Notification(viewsets.ModelViewSet):
+class NotificationViewset(viewsets.ModelViewSet):
     queryset = TaskHistoryModel.objects.all()
     serializer_class = NotificationSerializer
     http_method_names = ['get']

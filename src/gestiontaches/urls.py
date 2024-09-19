@@ -22,16 +22,19 @@ from project.viewsets.task_viewset import TaskViewSet
 from team.viewsets.team_viewset import TeamViewSet
 from team.viewsets.member_viewset import MemberViewSet
 from project.viewsets.summons_viewset import SummonsViewSet
-from history.views import Notification
+from history.viewsets.notifications_viewset import NotificationViewset
+from history.viewsets.histories_viewset import HistoriesViewset
 
 
 router = routers.DefaultRouter()
-router.register(r'project', ProjectViewSet)
-router.register(r'task', TaskViewSet)
-router.register(r'team', TeamViewSet)
-router.register(r'member', MemberViewSet)
+router.register(r'projects', ProjectViewSet)
+router.register(r'tasks', TaskViewSet)
+router.register(r'teams', TeamViewSet)
+router.register(r'members', MemberViewSet)
 router.register(r'summons', SummonsViewSet)
-router.register(r'notifications', Notification)
+router.register(r'notifications', NotificationViewset)
+router.register(r'histories', HistoriesViewset, basename="histories")
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),

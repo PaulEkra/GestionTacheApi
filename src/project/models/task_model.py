@@ -12,7 +12,7 @@ class TaskModel(DateTimeModel):
     ])
 
     def __str__(self):
-        return f"{self.id}:{self.title}, status:{self.progress}"
+        return f"{self.id}:{self.title}"
 
     def save(self, *args, **kwargs):
         project = self.project
