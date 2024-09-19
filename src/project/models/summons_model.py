@@ -48,7 +48,7 @@ class SummonsModel(DateTimeModel):
         self.clean()
         super().save(*args, **kwargs)
         progress = TaskHistoryModel.objects.create(
-            task=self.task.title,
+            task=f"{self.task.title}",
             updated_by=self.member.name,
             progress=f" Tâche {self.task.title} du projet {self.task.project.name}  assignée à {self.member.name}"
         )

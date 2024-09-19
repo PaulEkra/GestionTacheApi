@@ -9,6 +9,7 @@ from history.serializers.task_history_serializer import TaskHistorySerializer
 class SummonsViewSet(viewsets.ModelViewSet):
     queryset = SummonsModel.objects.filter(status=True)
     serializer_class = SummonsSerializer
+    http_method_names = ['get', 'post','delete']
 
 
 

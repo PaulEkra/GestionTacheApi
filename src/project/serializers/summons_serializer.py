@@ -6,10 +6,11 @@ from project.models.task_model import TaskModel
 
 class SummonsSerializer(serializers.ModelSerializer):
     task = serializers.SlugRelatedField(
-        queryset=TaskModel.objects.filter(progress="todo"),
+        read_only = True,
         slug_field='title'
     )
-
+    task_id = serializers.PrimaryKeyRelatedField(write_only=True, queryset=TaskModel.objects.filter(progress="todo"),
+                                                    source='task')
     class Meta:
         model = SummonsModel
         fields = '__all__'
